@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCRIPT>
+       
+
+        ///////////////////////////////////////////////
+        var operando1 = '';
+        var operacion = '';
+        var operando2 = '';
+
+        var pulsar = function (num){
+           
+            if (num == 'resultado'){
+                var resultado_final = '';
+                if (operacion == 'sumar'){
+                    resultado_final = sumar (operando1, operando2);
+                }else {
+                    resultado_final = mult (operando1, operando2);
+                }
+                else {
+                    resultado_final = dividir (operando1, operando2);
+                }
+                else {
+                    resultado_final = rest (operando1, operando2);
+                }
+                document.getElementById('pantalla').innerHTML = resultado_final;
+
+            } else if (num == 'sumar') {
+                document.getElementById('pantalla').innerHTML = '';
+                operacion = 'sumar'; // num
+
+            } else if (num == 'mult'){
+                document.getElementById('pantalla').innerHTML = '';
+                operacion = 'mult'; // num
+            }
+            else if (num == 'dividir'){
+                document.getElementById('pantalla').innerHTML = '';
+                operacion = 'div'; // num
+            }
+            else if (num == 'rest'){
+                document.getElementById('pantalla').innerHTML = '';
+                operacion = 'rest'; // num
+            }
+            else if (operacion == '') {
+                operando1 = operando1 + num;
+                document.getElementById('pantalla').innerHTML = operando1;
+               
+            } else if (operacion == 'sumar'|| operacion =='mult'|| operacion =='dividir'|| operacion =='rest') {
+                operando2 = operando2 + num;
+                document.getElementById('pantalla').innerHTML = operando2;
+            }
+
+        }
+
+        var sumar = function (operando1, operando2) {
+            console.log (Number(operando1) + Number(operando2));
+            return Number(operando1) + Number(operando2);
+
+        }
+        var rest = function (operando1, operando2) {
+            console.log (Number(operando1) - Number(operando2));
+            return Number(operando1) - Number(operando2);
+
+        }
+
+        var dividir = function (operando1, operando2) {            
+            return Number(operando1) / Number(operando2);
+
+        }
+        var mult = function (operando1, operando2) {            
+            return Number(operando1) * Number(operando2);
+
+        }
+
+        /////////////////////////////////////////////7
+       
+
+    </SCRIPT>
+</head>
+<body>
+    <label id="pantalla">0</label><br>
+    <button onclick="pulsar('0')">0</button>
+    <button onclick="pulsar('1')">1</button>
+    <button onclick="pulsar('2')">2</button>
+    <button onclick="pulsar('3')">3</button>
+    <button onclick="pulsar('4')">4</button>
+    <button onclick="pulsar('5')">5</button>
+    <button onclick="pulsar('6')">6</button>
+    <button onclick="pulsar('7')">7</button>
+    <button onclick="pulsar('8')">8</button>
+    <button onclick="pulsar('9')">9</button>
+    <button onclick="pulsar('sumar')">+</button>
+    <button onclick="pulsar('mult')">*</button>
+    <button onclick="pulsar('rest')">-</button>
+    <button onclick="pulsar('dividir')">/</button>
+    <button onclick="pulsar('resultado')">=</button>
+
+</body>
+</html>
